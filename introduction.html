@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+
+<link rel="icon" type="image/png" href="./000.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Computer heart AI And I</title>
+    <style>
+    *{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: 微軟正黑體;
+    box-sizing:border-box;
+  }
+  .wrapper{
+    min-height: 100%;
+}
+  
+  body{
+    background-color: #333;
+    color: #FFF;
+  }
+  .carousel-item img{
+    margin: 50px 0px 0px 0px ; /*設定圖片 上距*/
+    width: 100%;
+    height: 100%;
+  }
+  
+  .header{
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 50px;
+    background-color: #44385c; /*#202923;*/
+    position: fixed;
+    box-shadow: 0px 2px 6px #444;
+  }
+  .logo{
+    font-size: 0;
+    width: 60px;
+    height: 40px;
+    position: relative;
+    top: 5px;
+    left: 10px;
+  }
+  .logo a{
+    display:inline-block;
+  }
+  .logo a img{
+    display:block;
+  }
+  /* 漢堡選單 */
+  #menu_check{
+    display:none;
+  }
+  .bar{
+    width: 40px;
+    height: 40px;
+    background-color: #63ad7c; /*#aaa*/;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    padding: 2px;
+    box-sizing:border-box;
+  
+  }
+  .nav_bar{
+    width: 80%;
+    height: 3px;
+    background-color: #96f2b5; /*#000*/;
+    position: relative;
+    display: block;
+    top:45%;
+    margin: auto;
+    transition:.3s;
+  
+    
+  }
+  .nav_bar:before,.nav_bar:after{
+    content:"";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #96f2b5; /*#000*/;
+    display: block;
+    transition:.5s;
+    
+  }
+  .nav_bar:before{
+    top:-8px;
+  }
+  .nav_bar:after{
+    top:8px;
+  }
+  
+  #menu_check:checked+.bar .nav_bar{
+    background-color: transparent;
+  }
+  #menu_check:checked+.bar .nav_bar:before{
+    top:0px;
+    transform:rotate(45deg);
+  }
+  #menu_check:checked+.bar .nav_bar:after{
+    top:0px;
+    transform:rotate(-45deg);
+  }
+  
+  
+  /* 選單 */
+  nav{
+    font-size: 0;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    left: -100%;
+    transition:0.5s;
+    height: calc(100vh - 50px);
+    background-color: #202923;
+  
+   
+  }
+  .m_li{
+    display:block;
+    /* text-decoration:none; */
+    color:#FFF; /*字體顏色*/
+    border-radius:10px; /*給他圓角*/
+    font-weight: bolder; /*字體加粗*/
+    width: 100%;
+    padding: 10px 10px;
+    background-color: #202923;
+    border-bottom:1px solid #aaa;
+    font-size: 20px;
+  }
+  .m_li:hover{
+    text-decoration:none;
+    background-color: #ff7;
+  }
+  
+  #menu_check:checked~ nav{
+    left:0;
+  }
+  .clear_fix{
+    clear: both;
+  }
+  
+  
+  @media screen and (min-width:768px) {
+    .bar{
+      display:none;
+    }
+    .logo,nav{
+      display:inline-block;
+      vertical-align: middle;
+    }
+      nav{
+       display:block;
+        width: auto;
+        position: relative;
+        background-color: transparent;
+        top: 0px;
+        left: 0;
+        height: 50px;
+        float: right;
+      }
+      .m_li{
+        display:inline-block;
+        width: auto;
+        border-bottom:none;
+        height: 50px;
+        padding: 10px 25px;
+        vertical-align: top;
+        background-color: transparent;
+    }
+  }
+  
+          img{
+              vertical-align: bottom; /*設定圖片對齊邊線不要留白*/
+          }
+          .footer{
+              background-color: rgb(56, 23, 23);
+              color:#aaa;
+              text-align: center;
+              padding: 10px 0;
+              position: relative;
+              bottom: 0;
+          }
+          .item-group{
+              width: 100%;
+              max-width: 1400px;
+              margin: auto;
+          }
+          .title {
+              margin: 0 0px 30px;
+              padding: 5px 5px;
+              background-color: #696E74;
+          }
+          .title img{
+              display: block;
+              margin: auto;
+          }
+          .title h2{
+              color: #64221B;
+              text-align: center;
+              letter-spacing: 10px;
+              font-size: 46px;
+              font-weight: bolder;
+          }
+          
+          .title2{
+            margin: 0 0px 30px;
+            padding: 35px 35px;
+            background-color: #696E74;
+          }
+          .title2 h2{
+            color: #630358;
+            text-align: center;
+            font-size: 40px;
+            font-weight: bolder;
+        }
+          .title p{
+              font-size: 22px;
+              text-align: center;
+          }
+          .item{
+              margin: 0 15px 20px;
+          }
+          .item .text{
+              padding: 10px 0;
+              text-align: left;
+          }
+          .item h3{
+              font-weight: bolder;
+              font-size: 24px;
+          }
+          .item-group{
+              display: block;
+          }
+          .item .pic img{
+              width: 100%;
+          }
+          .service {
+              /* padding: 60px 0;  */
+              margin: 60px 0px;
+              background-color: #ffa;
+          }
+  
+          @media screen and (min-width: 768px){
+              
+              .item-group{
+                  display:flex;
+              }
+              .service .item{
+                  display: flex;
+                  margin: 0px;
+              }
+              .service .pic,
+              .service .text{
+                  width: 50%;
+                  margin: 0;
+              }
+              .service .text{
+                  display: flex;       /*是橫排*/
+                  padding: 0 20px;
+                  flex-direction: column;  /*變成直排*/
+                  justify-content: center;  /*主軸對齊方式*/
+                  box-sizing: border-box;
+              }
+              .service h3{
+                  text-align: center;
+              }
+          }
+
+          .jumbotron{
+              background-color: #333;
+          }
+    </style>
+</head>
+
+<body>
+    <!-- MENU -->
+    <!-- MENU -->
+    <!-- MENU -->
+    <div class="header">
+            <div class="logo">
+              <a href="index.html">
+                 <img src="./image/logo.png" width="100%" height="100%">
+              </a>
+            </div>
+          <input type="checkbox" id="menu_check">
+          <label for="menu_check" class="bar">
+            <span class="nav_bar"></span>
+          </label>
+          <nav>
+            <a href="./introduction.html" class="m_li">簡介</a>
+            <a href="./history.html" class="m_li">歷史背景</a>
+            <a href="./up.html" class="m_li">成長背景</a>
+            <a href="./technology.html" class="m_li">技術講解</a>
+            <a href="./features.html" class="m_li">功能性比較</a>
+            <a href="./web03.aspx" class="m_li">登入</a>
+            <a href="./login.aspx" class="m_li">註冊</a>
+          </nav>
+        <div class="clear_fix"></div>
+        
+    </div>
+        <!-- -----------------內容區--------------- -->
+        <div class="jumbotron">
+          <h1 class="display-5">AMD簡介</h1>
+          <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AMD(超威半導體)（美國紐約股票交易所代號：AMD）成立於1969年，創始人傑里·桑德斯,總部位於加利福尼亞州桑尼維爾。AMD公司專門為電腦、通信和消費電子行業設計和製造各種創新的微處理器、快閃記憶體和低功率處理器解決方案。AMD致力為技術用戶——從企業、政府機構到個人消費者——提供基於標準的、以客戶為中心的解決方案。AMD在全球各地設有業務機構，在美國、中國、德國、日本、馬來西亞、新加坡和泰國設有製造工廠，併在全球各大主要城市設有銷售辦事處，擁有超過1.6萬名員工。2005年，AMD的銷售額是58億美元。AMD有超過70%的收入都來自於國際市場，是一家真正意義上的跨國公司。公司在美國紐約股票交易所上市，代號為AMD。</p>
+          <hr class="my-4">
+
+          <h1 class="display-5">INTEL簡介</h1>
+          <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;英特爾是全球最大的晶元製造商，同時也是電腦、網路和通信產品的領先製造商。它成立於 1968 年，具有 37 年的技術產品創新和市場領導的歷史。1971 年，英特爾推出了全球第一枚微處理器。這一舉措不僅改變了公司的未來，而且對整個工業產生了深遠的影響。 微處理器所帶來的電腦和互聯網革命，改變了這個世界。英特爾為全球日益發展的電腦工業提供建築模塊，包括微處理器、晶元組、板卡、系統及軟體等。這些產品為標準電腦架構的組成部分。業界利用這些產品為最終用戶設計製造出先進的電腦。今天，數字經濟正引導信息產業朝著計算與通訊以及3C產品融合的方向迅速發展，作為全球信息產業的領導公司之一，英特爾將致力於整合公司的一切資源，推動基於英特爾產品的完全技術平臺開發的策略。正如英特爾總裁兼首席執行官保羅 • 歐德寧所指出的：“英特爾在充分準備人員和資源，以著重開發能夠滿足客戶需求，併為市場帶來創新和全新技術的平臺。新組織結構將可以幫助公司更好地預測和把握市場需求，加速決策制定，確保世界一流的出色運營，進而充分抓住增長機遇。各運營部門可以自主合理地分配計算與通信資源，使英特爾的整個結構與我們的平臺產品戰略保持一致。”2004 年，英特爾全球年收入為 342 億美元。2005 年 1 月，在達沃斯召開的“世界經濟論壇”上，英特爾被評為“全球 Top 100 最具持續性發展的企業”之一。</p>
+          <hr class="my-4">
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </div>
+
+        <!-- -----------------內容區--------------- -->
+        <div class="footer">
+          Copyright 2020 &copy;  All Rights Reserved.
+        </div>
+
+
+
+    <!-- Live Chat Widget powered by https://keyreply.com/chat/ -->
+<!-- Advanced options: -->
+<!-- data-align="left" -->
+<!-- data-overlay="true" -->
+<script data-align="right" data-overlay="false" id="keyreply-script" a href="//index.html" src="//keyreply.com/chat/widget.js" data-color="#123" data-apps="JTdCJTIybGluZSUyMjolMjJDb21wdXRlciUyMGhlYXJ0JTIwQUklMjBBbmQlMjBJJTIyLCUyMnNreXBlJTIyOiUyMkNvbXB1dGVyJTIwaGVhcnQlMjBBSSUyMEFuZCUyMEklMjIsJTIydHdpdHRlciUyMjolMjJDb21wdXRlciUyMGhlYXJ0JTIwQUklMjBBbmQlMjBJJTIyLCUyMndoYXRzYXBwJTIyOiUyMkNvbXB1dGVyJTIwaGVhcnQlMjBBSSUyMEFuZCUyMEklMjIsJTIyc21zJTIyOiUyMkNvbXB1dGVyJTIwaGVhcnQlMjBBSSUyMEFuZCUyMEklMjIsJTIycGhvbmUlMjI6JTIyQ29tcHV0ZXIlMjBoZWFydCUyMEFJJTIwQW5kJTIwSSUyMiwlMjJ0ZWxlZ3JhbSUyMjolMjIwOTIzNDU2Nzg5JTIyLCUyMmZhY2Vib29rJTIyOiUyMkNvbXB1dGVyJTIwaGVhcnQlMjBBSSUyMEFuZCUyMEklMjIsJTIyZW1haWwlMjI6JTIyQ29tcHV0ZXIlMjBoZWFydCUyMEFJJTIwQW5kJTIwSSUyMiU3RA=="></script>
+</body>
+</html> 

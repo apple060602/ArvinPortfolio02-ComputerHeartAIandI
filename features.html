@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+
+<link rel="icon" type="image/png" href="./000.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel=stylesheet type="text/css" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Computer heart AI And I</title>
+
+    <style>
+    *{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: 微軟正黑體;
+    box-sizing:border-box;
+  }
+  .imgp img{
+    display: block;
+    margin:auto;
+  }
+  .list-unstyled{
+    display: block;
+    margin: 150px 85px;
+  }
+  
+  body{
+    background-color: #333;
+    color: #FFF;
+  }
+  .carousel-item img{
+    margin: 50px 0px 0px 0px ; /*設定圖片 上距*/
+    width: 100%;
+    height: 100%;
+  }
+  
+  .header{
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 50px;
+    background-color: #44385c; /*#202923;*/
+    position: fixed;
+    box-shadow: 0px 2px 6px #444;
+  }
+  .logo{
+    font-size: 0;
+    width: 60px;
+    height: 40px;
+    position: relative;
+    top: 5px;
+    left: 10px;
+  }
+  .logo a{
+    display:inline-block;
+  }
+  .logo a img{
+    display:block;
+  }
+  /* 漢堡選單 */
+  #menu_check{
+    display:none;
+  }
+  .bar{
+    width: 40px;
+    height: 40px;
+    background-color: #63ad7c; /*#aaa*/;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    padding: 2px;
+    box-sizing:border-box;
+  
+  }
+  .nav_bar{
+    width: 80%;
+    height: 3px;
+    background-color: #96f2b5; /*#000*/;
+    position: relative;
+    display: block;
+    top:45%;
+    margin: auto;
+    transition:.3s;
+  
+    
+  }
+  .nav_bar:before,.nav_bar:after{
+    content:"";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #96f2b5; /*#000*/;
+    display: block;
+    transition:.5s;
+    
+  }
+  .nav_bar:before{
+    top:-8px;
+  }
+  .nav_bar:after{
+    top:8px;
+  }
+  
+  #menu_check:checked+.bar .nav_bar{
+    background-color: transparent;
+  }
+  #menu_check:checked+.bar .nav_bar:before{
+    top:0px;
+    transform:rotate(45deg);
+  }
+  #menu_check:checked+.bar .nav_bar:after{
+    top:0px;
+    transform:rotate(-45deg);
+  }
+  
+  
+  /* 選單 */
+  nav{
+    font-size: 0;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    left: -100%;
+    transition:0.5s;
+    height: calc(100vh - 50px);
+    background-color: #202923;
+  
+   
+  }
+  .m_li{
+    display:block;
+    /* text-decoration:none; */
+    color:#FFF; /*字體顏色*/
+    border-radius:10px; /*給他圓角*/
+    font-weight: bolder; /*字體加粗*/
+    width: 100%;
+    padding: 10px 10px;
+    background-color: #202923;
+    border-bottom:1px solid #aaa;
+    font-size: 20px;
+  }
+  .m_li:hover{
+    text-decoration:none;
+    background-color: #ff7;
+  }
+  
+  #menu_check:checked~ nav{
+    left:0;
+  }
+  .clear_fix{
+    clear: both;
+  }
+  
+  
+  @media screen and (min-width:768px) {
+    .bar{
+      display:none;
+    }
+    .logo,nav{
+      display:inline-block;
+      vertical-align: middle;
+    }
+      nav{
+       display:block;
+        width: auto;
+        position: relative;
+        background-color: transparent;
+        top: 0px;
+        left: 0;
+        height: 50px;
+        float: right;
+      }
+      .m_li{
+        display:inline-block;
+        width: auto;
+        border-bottom:none;
+        height: 50px;
+        padding: 10px 25px;
+        vertical-align: top;
+        background-color: transparent;
+    }
+  }
+  
+          img{
+              vertical-align: bottom; /*設定圖片對齊邊線不要留白*/
+          }
+          .footer{
+              background-color: rgb(56, 23, 23);
+              color:#aaa;
+              text-align: center;
+              padding: 10px 0;
+              position: relative;
+          }
+          .item-group{
+              width: 100%;
+              max-width: 1400px;
+              margin: auto;
+          }
+          .title {
+              margin: 0 0px 30px;
+              padding: 5px 5px;
+              background-color: #696E74;
+          }
+          .title img{
+              display: block;
+              margin: auto;
+          }
+          .title h2{
+              color: #64221B;
+              text-align: center;
+              letter-spacing: 10px;
+              font-size: 46px;
+              font-weight: bolder;
+          }
+          
+          .title2{
+            margin: 0 0px 30px;
+            padding: 35px 35px;
+            background-color: #696E74;
+          }
+          .title2 h2{
+            color: #630358;
+            text-align: center;
+            font-size: 40px;
+            font-weight: bolder;
+        }
+          .title p{
+              font-size: 22px;
+              text-align: center;
+          }
+          .item{
+              margin: 0 15px 20px;
+          }
+          .item .text{
+            color:#630358;
+              padding: 30px 10px;
+              text-align: left;
+          }
+          .item h3{
+              font-weight: bolder;
+              font-size: 64px;
+          }
+          .item-group{
+              display: block;
+          }
+          .pic img{
+           margin:30px 25px ;
+          }
+          .service {
+            border-radius:20px; /*給他圓角*/
+              padding: 80px 0; 
+              margin: 70px 20px;
+              background-color: rgb(180, 180, 156);
+          }
+  
+          @media screen and (min-width: 768px){
+              
+              .item-group{
+                  display:flex;
+              }
+              .service .item{
+                  display: flex;
+                  margin: 0px;
+              }
+              .service .pic,
+              .service .text{
+                  width: 50%;
+                  margin: 0;
+              }
+              .service .text{
+                  display: flex;       /*是橫排*/
+                  padding: 0 20px;
+                  flex-direction: column;  /*變成直排*/
+                  justify-content: center;  /*主軸對齊方式*/
+                  box-sizing: border-box;
+              }
+              .service h3{
+                  text-align: center;
+              }
+          }
+
+          .jumbotron{
+              background-color: #333;
+          }
+    
+    </style>
+
+</head>
+
+<body>
+    <!-- MENU -->
+    <!-- MENU -->
+    <!-- MENU -->
+    <div class="header">
+            <div class="logo">
+              <a href="index.html">
+                 <img src="./image/logo.png" width="100%" height="100%">
+              </a>
+            </div>
+          <input type="checkbox" id="menu_check">
+          <label for="menu_check" class="bar">
+            <span class="nav_bar"></span>
+          </label>
+          <nav>
+            <a href="./introduction.html" class="m_li">簡介</a>
+            <a href="./history.html" class="m_li">歷史背景</a>
+            <a href="./up.html" class="m_li">成長背景</a>
+            <a href="./technology.html" class="m_li">技術講解</a>
+            <a href="./features.html" class="m_li">功能性比較</a>
+            <a href="./web03.aspx" class="m_li">登入</a>
+            <a href="./login.aspx" class="m_li">註冊</a>
+          </nav>
+        <div class="clear_fix"></div>
+        
+    </div>
+        <!-- -----------------內容區--------------- -->
+        
+        <div class="jumbotron">
+          <h1 class="display-5">Ryzen三代VS intel 9代</h1>
+          <hr class="my-4">
+          <br>
+
+          <div class="imgp">
+            <img src="./img2/m5.png" alt="">
+          </div> 
+          <hr class="my-4">
+          <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ryzen 二代上市以後 intel也相繼做出了的9代core CPU應戰Intel 9代
+            CPU使用是14nm++，各等級的CPU頻率都有提升而核心數 i5和8代一樣
+            6核心，而i7升級為8核心但取消了超執行緒的技術，intel還推出了比i7
+            還更高的旗艦處理器i9 9900K8核16線程單核可到達5G。 
+            </p>
+            <hr class="my-4">
+
+          <div class="jumbotron">
+          <h1 class="display-5">Cinebench R15性能測試(Ryzen三代VS intel 9代)</h1>
+          <hr class="my-4">
+          <br>
+
+          <div class="imgp">
+            <img src="./img2/m6.png" alt="">
+          </div> 
+          <hr class="my-4">
+          <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上圖可以看到 R7 3700X不論多核分數還是單核分數都比i9 9900K的分數還高
+            你可能會問我:奇怪i9 900K頻率不是可以到5Ghz嗎?而R7 3700X最高也只能跑到單核4.4G為何性能會比i9好呢?這原因就有如我前面說的，這次Ryzen 三代雖然的確有比 Ryzen提升了一點頻率但這不是主要贏過intel的原因，而是因為IPC的提升，IPC *頻率=CPU性能，如今intel的IPC落後，就算I9 9900k有5G的頻率但IPC上不來也打不贏R7 3700X。(舉例:套用公式i9性能=10(IPC)*5(頻率)=50的性能分，而R73700X則是R7性能=15(IPC)*4.4(頻率)=66的性能分，
+            那R7不需要到5G性能就能比i9高了。             
+            </p>
+            <hr class="my-4">
+          </div>
+
+          <div class="jumbotron">
+            <h1 class="display-5">遊戲性能測試</h1>
+            <hr class="my-4">
+            <br>
+            <div class="imgp">
+              <img src="./img2/m7.png" alt="">
+            </div> 
+            <hr class="my-4">
+            <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以上圖可以看出第三代Ryzen的遊戲性能終於與intel平起平坐甚至超越了，
+              3700X相較於2700CX提升了近176張FPS的成績，而面對i9 9900K 這顆intel最強的遊戲旗艦級CPU R7 3700X也完美的獲得了勝利，甚至與i5做對比的 R5 3600的遊戲性能也贏過了i9 9900K!睽違了3年AMD在遊戲性能方面終於贏過了intel。                           
+              </p>
+              <hr class="my-4">
+            </div>
+
+        </div>
+
+
+        <!-- -----------------內容區--------------- -->
+        <div class="footer">
+          Copyright 2020 &copy;  All Rights Reserved.
+        </div>
+
+
+
+<!-- Advanced options: -->
+<!-- data-align="left" -->
+<!-- data-overlay="true" -->
+<script data-align="right" data-overlay="true" id="keyreply-script" a href="//index.html" src="//keyreply.com/chat/widget.js" data-color="#123" data-apps="JTdCJTIybGluZSUyMjolMjJDb21wdXRlciUyMGhlYXJ0JTIwQUklMjBBbmQlMjBJJTIyLCUyMnNreXBlJTIyOiUyMkNvbXB1dGVyJTIwaGVhcnQlMjBBSSUyMEFuZCUyMEklMjIsJTIydHdpdHRlciUyMjolMjJDb21wdXRlciUyMGhlYXJ0JTIwQUklMjBBbmQlMjBJJTIyLCUyMndoYXRzYXBwJTIyOiUyMkNvbXB1dGVyJTIwaGVhcnQlMjBBSSUyMEFuZCUyMEklMjIsJTIyc21zJTIyOiUyMkNvbXB1dGVyJTIwaGVhcnQlMjBBSSUyMEFuZCUyMEklMjIsJTIycGhvbmUlMjI6JTIyQ29tcHV0ZXIlMjBoZWFydCUyMEFJJTIwQW5kJTIwSSUyMiwlMjJ0ZWxlZ3JhbSUyMjolMjIwOTIzNDU2Nzg5JTIyLCUyMmZhY2Vib29rJTIyOiUyMkNvbXB1dGVyJTIwaGVhcnQlMjBBSSUyMEFuZCUyMEklMjIsJTIyZW1haWwlMjI6JTIyQ29tcHV0ZXIlMjBoZWFydCUyMEFJJTIwQW5kJTIwSSUyMiU3RA=="></script>
+</body>
+</html> 
